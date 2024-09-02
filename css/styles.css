@@ -36,6 +36,11 @@ main section {
   width: 25%;
 }
 
+.col-4 {
+  flex: 0 0 auto;
+  width: 33.33333333%;
+}
+
 .col-6 {
   flex: 0 0 auto;
   width: 50%;

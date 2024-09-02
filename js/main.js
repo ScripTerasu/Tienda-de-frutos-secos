@@ -144,7 +144,7 @@ async function cargarProductos() {
 
   data.forEach((producto) => {
     const productHTML = `
-        <div class="col-3">
+        <div class="col-4">
           <div class="card">
             <img
               src="${producto.imagen}"
