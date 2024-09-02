@@ -178,8 +178,6 @@ async function cargarProductos() {
   });
 }
 
-cargarProductos();
-
 function agregarAlCarrito(producto) {
   carrito.push(producto);
   mostrarCarrito();
@@ -197,3 +195,5 @@ function mostrarCarrito() {
     confirmButtonText: "Aceptar",
   });
 }
+
+cargarProductos();
