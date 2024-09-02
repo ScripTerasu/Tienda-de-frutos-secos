@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "nombre": "Almendras En Cascara",
+        "precio": 2500,
+        "imagen": "assets/almendras.cascara.jpeg",
+        "stock": 1
+    },
+    {
+        "id": 2,
+        "nombre": "Almendras enteras",
+        "precio": 8000,
+        "imagen": "assets/almendras.enteras.png",
+        "stock": 2
+    }
+]
