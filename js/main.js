@@ -179,18 +179,41 @@ async function cargarProductos() {
 }
 
 function agregarAlCarrito(producto) {
-  carrito.push(producto);
+  // Buscar si el producto ya existe en el carrito
+  const index = carrito.findIndex((p) => p.id === producto.id);
+
+  if (index > -1) {
+    // Si existe, aumentar la cantidad
+    carrito[index].cantidad += 1;
+  } else {
+    // Si no existe, agregar nuevo producto con cantidad 1
+    carrito.push({ ...producto, cantidad: 1 });
+  }
+
   mostrarCarrito();
 }
 
 function mostrarCarrito() {
   const carritoHTML = carrito
-    .map((producto) => `<li>${producto.nombre} - $${producto.precio}</li>`)
+    .map(
+      (producto) =>
+        `<li>${producto.nombre} - $${producto.precio} x ${
+          producto.cantidad
+        } = $${(producto.precio * producto.cantidad)}</li>`
+    )
     .join("");
+
+  // Calcular el total
+  const total = carrito
+    .reduce((sum, producto) => sum + producto.precio * producto.cantidad, 0);
 
   Swal.fire({
     title: "Carrito de Compras",
-    html: `<ul>${carritoHTML}</ul>`,
+    html: `
+        <ul>${carritoHTML}</ul>
+        <hr>
+        <h4>Total: $${total}</h4>
+      `,
     icon: "info",
     confirmButtonText: "Aceptar",
   });
